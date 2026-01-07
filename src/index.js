@@ -17,6 +17,10 @@ function generatePoem(event) {
     "You are a classic english poet and poetry expert who writes beautiful 4 lines poems. Each line must be separated and end with <br />. You love to write short and funny peoms for people to enjoy. Make sure to follow user prompt excactly. Sign it with <strong>SheCodes AI</strong> and separate the signature with <br />.";
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
+  let poemElement = document.querySelector("#poem");
+  poemElement.classList.remove("hidden");
+  poemElement.innerHTML = `<div class="blink">Generating your poem...</div>`;
+
   axios.get(apiUrl).then(displayPoem);
 }
 
